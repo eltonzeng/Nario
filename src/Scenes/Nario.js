@@ -1,6 +1,6 @@
 class Nario extends Phaser.Scene {
     constructor() {
-        super("Nario");
+        super("NarioScene");
     }
 
     init() {
@@ -15,20 +15,15 @@ class Nario extends Phaser.Scene {
         this.coinCount = 0;
     }
     
-    preload() {
-        this.load.setPath("./assets/");
-        this.load.audio('coinSound', 'impactPlate_medium_003.ogg');
-    }
-    
     create() {
-        // Create a new tilemap game object which uses 18x18 pixel tiles, and is
-        // 45 tiles wide and 25 tiles tall.
-        this.map = this.add.tilemap("platformer-level-1", 16, 16, 120, 60);
+        // Create a new tilemap game object which uses 16x16 pixel tiles, and is
+        // 120 tiles wide and 30 tiles tall.
+        this.map = this.add.tilemap("NarioWorld", 16, 16, 120, 30);
     
         // Add a tileset to the map
         // First parameter: name we gave the tileset in Tiled
         // Second parameter: key for the tilesheet (from this.load.image in Load.js)
-        this.tileset = this.map.addTilesetImage("kenny_tilemap_packed", "tilemap_tiles");
+        this.tileset = this.map.addTilesetImage("NES - Super Mario Bros - Tileset (1)", "tilemap_tiles");
     
         // Create a layer
         this.groundLayer = this.map.createLayer("Ground and Platforms", this.tileset, 0, 0);
@@ -54,7 +49,7 @@ class Nario extends Phaser.Scene {
         this.flagGroup = this.add.group(this.flagPole, this.flag);
     
         // set up player avatar
-        my.sprite.player = this.physics.add.sprite(30, 345, "platformer_characters", "tile_0000.png");
+        my.sprite.player = this.physics.add.sprite(30, 345, "mario", "mario_idle.png");
         my.sprite.player.setCollideWorldBounds(true);
     
         // Enable collision handling
@@ -67,10 +62,6 @@ class Nario extends Phaser.Scene {
             this.coinCount++; // increment coin counter
         });
     
-        this.physics.add.overlap(my.sprite.player, this.flagGroup, (obj1, obj2) => {
-            this.scene.start("endScene", { coinCount: this.coinCount });
-        });
-    
         // set up Phaser-provided cursor key input
         cursors = this.input.keyboard.createCursorKeys();
     
@@ -81,27 +72,13 @@ class Nario extends Phaser.Scene {
             this.physics.world.drawDebug = this.physics.world.drawDebug ? false : true
             this.physics.world.debugGraphic.clear()
         }, this);
-    
-        // TODO: Add movement vfx here
-        my.vfx.walking = this.add.particles(0, 0, "kenny-particles", {
-            frame: ['flare_01.png'],
-            // TODO: Try: add random: true
-            scale: {start: 0.03, end: 0.1},
-            // TODO: Try: maxAliveParticles: 8,
-            lifespan: 350,
-            // TODO: Try: gravityY: -400,
-            alpha: {start: 1, end: 0.1}, 
-        });
-    
-        my.vfx.walking.stop();
-    
+
         // TODO: add camera code here
         this.cameras.main.setBounds(0, 0, this.map.widthInPixels, this.map.heightInPixels);
         this.cameras.main.startFollow(my.sprite.player, true, 0.25, 0.25, -500, 0); // (target, [,roundPixels][,lerpX][,lerpY])
         // this.cameras.main.setFollowOffset(0, -100);
         this.cameras.main.setDeadzone(50, 50);
         this.cameras.main.setZoom(this.SCALE);
-    
     }
     
     update() {

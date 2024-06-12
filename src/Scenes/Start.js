@@ -17,5 +17,13 @@ class Start extends Phaser.Scene {
             'Credits: Elton Zeng', 
             { fontFamily: 'Arial', fontSize: 40, color: '#ffffff' }
         ).setOrigin(0.5);
+
+        // Create an input event listener
+        this.input.keyboard.on('keydown', this.startNextScene, this);
+    }
+
+    startNextScene() {
+        // Start the 'Load' scene
+        this.scene.start('loadScene');
     }
 }
