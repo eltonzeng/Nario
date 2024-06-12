@@ -1,0 +1,92 @@
+{"frames": {
+
+"B_Mario_Jump.png":
+{
+	"frame": {"x":1,"y":259,"w":127,"h":254},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":127,"h":254},
+	"sourceSize": {"w":127,"h":254}
+},
+"B_Mario_idle.png":
+{
+	"frame": {"x":1,"y":515,"w":127,"h":254},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":127,"h":254},
+	"sourceSize": {"w":127,"h":254}
+},
+"B_Mario_collide.png":
+{
+	"frame": {"x":1,"y":771,"w":127,"h":254},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":127,"h":254},
+	"sourceSize": {"w":127,"h":254}
+},
+"B_Mario_run2.png":
+{
+	"frame": {"x":1,"y":1027,"w":127,"h":254},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":127,"h":254},
+	"sourceSize": {"w":127,"h":254}
+},
+"B_Mario_run1.png":
+{
+	"frame": {"x":1,"y":1,"w":127,"h":256},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":127,"h":256},
+	"sourceSize": {"w":127,"h":256}
+},
+"mario_run2.png":
+{
+	"frame": {"x":1,"y":1283,"w":128,"h":128},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":128,"h":128},
+	"sourceSize": {"w":128,"h":128}
+},
+"mario_run1.png":
+{
+	"frame": {"x":1,"y":1413,"w":128,"h":128},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":128,"h":128},
+	"sourceSize": {"w":128,"h":128}
+},
+"mario_jump.png":
+{
+	"frame": {"x":1,"y":1543,"w":128,"h":128},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":128,"h":128},
+	"sourceSize": {"w":128,"h":128}
+},
+"mario_idle.png":
+{
+	"frame": {"x":1,"y":1673,"w":128,"h":128},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":128,"h":128},
+	"sourceSize": {"w":128,"h":128}
+},
+"mario_collide.png":
+{
+	"frame": {"x":1,"y":1803,"w":128,"h":128},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":128,"h":128},
+	"sourceSize": {"w":128,"h":128}
+}},
+"meta": {
+	"app": "https://www.codeandweb.com/texturepacker",
+	"version": "1.0",
+	"image": "marios.png",
+	"format": "RGBA8888",
+	"size": {"w":130,"h":1932},
+	"scale": "1",
+	"smartupdate": "$TexturePacker:SmartUpdate:02a99a8635e9d11c262856dda5de0404:731b0a98f50755e89cf956e3055f8754:89d9464a635d840d2f48e055ade60672$"
+}
+}
