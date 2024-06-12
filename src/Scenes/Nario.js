@@ -18,7 +18,7 @@ class Nario extends Phaser.Scene {
     create() {
         // Create a new tilemap game object which uses 16x16 pixel tiles, and is
         // 120 tiles wide and 30 tiles tall.
-        this.map = this.add.tilemap("NarioWorld", 16, 16, 120, 30);
+        this.map = this.add.tilemap("Nario_1-1", 16, 16, 120, 30);
     
         // Add a tileset to the map
         // First parameter: name we gave the tileset in Tiled
@@ -39,14 +39,11 @@ class Nario extends Phaser.Scene {
         
         // Since createFromObjects returns an array of regular Sprites, we need to convert 
         // them into Arcade Physics sprites (STATIC_BODY, so they don't move) 
-        this.physics.world.enable(this.coins, Phaser.Physics.Arcade.STATIC_BODY);
-        this.physics.world.enable(this.flagPole, Phaser.Physics.Arcade.STATIC_BODY);
-        this.physics.world.enable(this.flag, Phaser.Physics.Arcade.STATIC_BODY);
+        // this.physics.world.enable(this.coins, Phaser.Physics.Arcade.STATIC_BODY);
     
         // Create a Phaser group out of the array this.coins
         // This will be used for collision detection below.
-        this.coinGroup = this.add.group(this.coins);
-        this.flagGroup = this.add.group(this.flagPole, this.flag);
+        // this.coinGroup = this.add.group(this.coins);
     
         // set up player avatar
         my.sprite.player = this.physics.add.sprite(30, 345, "mario", "mario_idle.png");

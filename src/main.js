@@ -25,4 +25,7 @@ let config = {
     scene: [Start, Load, Endscreen, Nario]
 }
 
+var cursors;
+var my = {sprite: {}, text: {}, vfx: {}};
+
 const game = new Phaser.Game(config);
