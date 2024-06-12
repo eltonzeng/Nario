@@ -11,8 +11,8 @@ let config = {
         pixelArt: true  // prevent pixel art from getting blurred when scaled
     },
     width: 1920,
-    height: 3200,
-    scene: [Start, Load, Nario, Endscreen]
+    height: 1080,
+    scene: [Start, Load, Endscreen, Nario]
 }
 
 const game = new Phaser.Game(config);
