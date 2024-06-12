@@ -7,61 +7,93 @@ class Load extends Phaser.Scene {
         this.load.setPath("./assets/");
 
         // Load characters spritesheet
-        this.load.atlas("platformer_characters", "tilemap-characters-packed.png", "tilemap-characters-packed.json");
+        this.load.atlas("marios", "marios.png", "marios.json");
         this.load.audio('coinSound', 'Mario-coin-sound.mp3');
 
         // Load tilemap information
-        this.load.image("tilemap_tiles", "tilemap_packed.png");                         // Packed tilemap
-        this.load.tilemapTiledJSON("platformer-level-1", "platformer-level-1.tmj");   // Tilemap in JSON
+        this.load.image("tilemap_tiles", "NES - Super Mario Bros - Tileset (1).png");                         // Packed tilemap
+        this.load.tilemapTiledJSON("Nario_1-1", "NarioWorld.tmj");   // Tilemap in JSON
 
         // Load the tilemap as a spritesheet
-        this.load.spritesheet("tilemap_sheet", "tilemap_packed.png", {
+        this.load.spritesheet("tilemap_sheet", "NES - Super Mario Bros - Tileset (1).png", {
             frameWidth: 16,
             frameHeight: 16
         });
-
-        // Oooh, fancy. A multi atlas is a texture atlas which has the textures spread
-        // across multiple png files, so as to keep their size small for use with
-        // lower resource devices (like mobile phones).
-        // kenny-particles.json internally has a list of the png files
-        // The multiatlas was created using TexturePacker and the Kenny
-        // Particle Pack asset pack.
-        this.load.multiatlas("kenny-particles", "kenny-particles.json");
     }
 
     create() {
         this.anims.create({
             key: 'walk',
-            frames: this.anims.generateFrameNames('platformer_characters', {
-                prefix: "tile_",
-                start: 0,
-                end: 1,
-                suffix: ".png",
-                zeroPad: 4
-            }),
-            frameRate: 15,
-            repeat: -1
+            frames: [
+                { key: 'marios', frame: 'mario_run1.png' },
+                { key: 'marios', frame: 'mario_run2.png' }
+            ],
+            frameRate: 10,  // Adjust the frame rate as needed
+            repeat: -1      // Loop the animation indefinitely
+        });
+
+        this.anims.create({
+            key: 'walk_B',
+            frames: [
+                { key: 'marios', frame: 'B_Mario_run1.png' },
+                { key: 'marios', frame: 'B_Mario_run2.png' }
+            ],
+            frameRate: 10,  // Adjust the frame rate as needed
+            repeat: -1      // Loop the animation indefinitely
         });
 
         this.anims.create({
             key: 'idle',
-            defaultTextureKey: "platformer_characters",
+            defaultTextureKey: "marios",
             frames: [
-                { frame: "tile_0000.png" }
+                { frame: "mario_idle.png" }
+            ],
+            repeat: -1
+        });
+
+        this.anims.create({
+            key: 'idle_B',
+            defaultTextureKey: "marios",
+            frames: [
+                { frame: "B_Mario_idle.png" }
             ],
             repeat: -1
         });
 
         this.anims.create({
             key: 'jump',
-            defaultTextureKey: "platformer_characters",
+            defaultTextureKey: "marios",
             frames: [
-                { frame: "tile_0001.png" }
+                { frame: "mario_jump.png" }
+            ],
+        });
+
+        this.anims.create({
+            key: 'jump_B',
+            defaultTextureKey: "marios",
+            frames: [
+                { frame: "B_Mario_Jump.png" }
+            ],
+        });
+
+        this.anims.create({
+            key: 'collide',
+            defaultTextureKey: "marios",
+            frames: [
+                { frame: "mario_collide.png" }
+            ],
+        });
+
+        this.anims.create({
+            key: 'collide_B',
+            defaultTextureKey: "marios",
+            frames: [
+                { frame: "B_Mario_collide.png" }
             ],
         });
 
          // ...and pass to the next Scene
-         this.scene.start("platformerScene");
+         this.scene.start("NarioScene");
     }
 
     // Never get here since a new scene is started in create()
