@@ -18,7 +18,7 @@ class Nario extends Phaser.Scene {
     create() {
         // Create a new tilemap game object which uses 16x16 pixel tiles, and is
         // 120 tiles wide and 30 tiles tall.
-        this.map = this.add.tilemap("Nario_1-1", 16, 16, 120, 30);
+        this.map = this.add.tilemap("Nario_1-1", 16, 16, 210, 16);
     
         // Add a tileset to the map
         // First parameter: name we gave the tileset in Tiled
@@ -26,10 +26,16 @@ class Nario extends Phaser.Scene {
         this.tileset = this.map.addTilesetImage("NES - Super Mario Bros - Tileset (1)", "tilemap_tiles");
     
         // Create a layer
-        this.groundLayer = this.map.createLayer("Ground and Platforms", this.tileset, 0, 0);
+        this.skyLayer = this.map.createLayer("Sky", this.tileset, 0, 0);
+        this.pipeLayer = this.map.createLayer("Pipes-n-Blocks", this.tileset, 0, 0);
+        this.treelayer = this.map.createLayer("Trees", this.tileset, 0, 0);
+        this.groundLayer = this.map.createLayer("Ground-n-Platforms", this.tileset, 0, 0);
     
         // Make it collidable
         this.groundLayer.setCollisionByProperty({
+            collides: true
+        });
+        this.pipeLayer.setCollisionByProperty({
             collides: true
         });
         this.load.audio('coinSound', 'impactPlate_medium_003.ogg');
@@ -46,12 +52,12 @@ class Nario extends Phaser.Scene {
         // this.coinGroup = this.add.group(this.coins);
     
         // set up player avatar
-        my.sprite.player = this.physics.add.sprite(30, 345, "mario", "mario_idle.png");
+        my.sprite.player = this.physics.add.sprite(0, -100, "marios", "mario_idle.png");
         my.sprite.player.setCollideWorldBounds(true);
-    
+        //my.sprite.player.setScale(.5);
         // Enable collision handling
         this.physics.add.collider(my.sprite.player, this.groundLayer);
-    
+        
         // Handle collision detection with coins
         this.physics.add.overlap(my.sprite.player, this.coinGroup, (obj1, obj2) => {
             this.coinSound.play();
@@ -119,7 +125,6 @@ class Nario extends Phaser.Scene {
             my.sprite.player.setDragX(this.DRAG);
             my.sprite.player.anims.play('idle');
             // TODO: have the vfx stop playing
-            my.vfx.walking.stop();
         }
     
         // player jump

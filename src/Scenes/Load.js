@@ -35,8 +35,8 @@ class Load extends Phaser.Scene {
         this.anims.create({
             key: 'walk_B',
             frames: [
-                { key: 'marios', frame: 'B_Mario_run1.png' },
-                { key: 'marios', frame: 'B_Mario_run2.png' }
+                { key: 'marios', frame: 'b_mario_run1.png' },
+                { key: 'marios', frame: 'b_mario_run2.png' }
             ],
             frameRate: 10,  // Adjust the frame rate as needed
             repeat: -1      // Loop the animation indefinitely
@@ -52,10 +52,10 @@ class Load extends Phaser.Scene {
         });
 
         this.anims.create({
-            key: 'idle_B',
+            key: 'idle_b',
             defaultTextureKey: "marios",
             frames: [
-                { frame: "B_Mario_idle.png" }
+                { frame: "b_mario_idle.png" }
             ],
             repeat: -1
         });
@@ -69,10 +69,10 @@ class Load extends Phaser.Scene {
         });
 
         this.anims.create({
-            key: 'jump_B',
+            key: 'jump_b',
             defaultTextureKey: "marios",
             frames: [
-                { frame: "B_Mario_Jump.png" }
+                { frame: "b_mario_jump.png" }
             ],
         });
 
@@ -85,10 +85,10 @@ class Load extends Phaser.Scene {
         });
 
         this.anims.create({
-            key: 'collide_B',
+            key: 'collide_b',
             defaultTextureKey: "marios",
             frames: [
-                { frame: "B_Mario_collide.png" }
+                { frame: "b_mario_collide.png" }
             ],
         });
 
