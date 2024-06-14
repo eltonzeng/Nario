@@ -5,8 +5,8 @@ class Nario extends Phaser.Scene {
 
     init() {
         // variables and settings
-        this.ACCELERATION = 100;
-        this.DRAG = 100;    // DRAG < ACCELERATION = icy slide
+        this.ACCELERATION = 50;
+        this.DRAG = 1000;    // DRAG < ACCELERATION = icy slide
         this.physics.world.gravity.y = 700;
         this.JUMP_VELOCITY = -310;
         this.SCALE = 3;
@@ -47,10 +47,28 @@ class Nario extends Phaser.Scene {
             collides: true
         });
 
+        // set up player avatar
+        my.sprite.player = this.physics.add.sprite(0, -100, "marios", "mario_idle.png");
+        my.sprite.player.setCollideWorldBounds(true);
+        my.sprite.player.setScale(.125);
+
+        // Enable collision handling
+        this.physics.add.collider(my.sprite.player, this.groundLayer);
+
+        // set physics world properties
+        this.physics.world.bounds.setTo(0, 0, this.map.widthInPixels, this.map.heightInPixels)
+        this.physics.world.TILE_BIAS = 26  // increase to prevent sprite tunneling through tiles
+
         this.coinSound = this.sound.add('coinSound');
         this.flagSound = this.sound.add('flagpole');
     
-        // create objects coin and powerup (mushroom)
+        // Create objects
+        this.blocks = this.map.createFromObjects("Flag-n-Items", {
+            name: "question",
+            key: "tilemap_sheet",
+            frame: 24
+        });
+
         this.coins = this.map.createFromObjects("Flag-n-Items", {
             name: "coin",
             key: "tilemap_sheet",
@@ -71,26 +89,38 @@ class Nario extends Phaser.Scene {
 
         // Since createFromObjects returns an array of regular Sprites, we need to convert 
         // them into Arcade Physics sprites (STATIC_BODY, so they don't move) 
+        this.physics.world.enable(this.blocks, Phaser.Physics.Arcade.STATIC_BODY);
         this.physics.world.enable(this.coins, Phaser.Physics.Arcade.STATIC_BODY);
         this.physics.world.enable(this.flagPole, Phaser.Physics.Arcade.STATIC_BODY);
         this.physics.world.enable(this.flag, Phaser.Physics.Arcade.STATIC_BODY);
     
         // Create a Phaser group out of the array this.coins
         // This will be used for collision detection below.
+        this.blockGroup = this.add.group(this.blocks);
         this.coinGroup = this.add.group(this.coins);
         this.flagGroup = this.add.group(this.flagPole, this.flag);
-    
-        // set up player avatar
-        my.sprite.player = this.physics.add.sprite(0, -100, "marios", "mario_idle.png");
-        my.sprite.player.setCollideWorldBounds(true);
-        my.sprite.player.setScale(.125);
 
-        // Enable collision handling
-        this.physics.add.collider(my.sprite.player, this.groundLayer);
+        this.coins.forEach(coin => {
+            coin.setVisible(false);
+            coin.body.enable = false;
+        });
 
-        // set physics world properties
-        this.physics.world.bounds.setTo(0, 0, this.map.widthInPixels, this.map.heightInPixels)
-        this.physics.world.TILE_BIAS = 26  // increase to prevent sprite tunneling through tiles
+        // Enable collision for blockGroup
+        this.physics.add.collider(my.sprite.player, this.blockGroup, (player, block) => {
+            if (block.frame.name == 24 && player.body.blocked.up) {
+                block.setFrame(27); // Change block to dull block
+
+                // Find the matching coin by blockID
+                const blockID = block.getData('blockID');
+                const coin = this.coinGroup.getChildren().find(coin => coin.getData('blockID') === blockID);
+                if (coin) {
+                    coin.setVisible(true).setActive(true);
+                    coin.body.enable = true; // Enable physics body
+                    this.physics.world.enable(coin, Phaser.Physics.Arcade.STATIC_BODY); // Re-enable physics body
+                    this.coinSound.play();
+                }
+            }
+        });
 
         // Handle collision detection with coins and flag
         this.physics.add.overlap(my.sprite.player, this.coinGroup, (obj1, obj2) => {

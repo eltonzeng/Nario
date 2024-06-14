@@ -21,7 +21,7 @@ class Endscreen extends Phaser.Scene {
             this.game.config.width / 2, 
             this.game.config.height / 2 - 50, 
             'Good Job! You finished the game!', 
-            { fontFamily: 'Arial', fontSize: 40, color: '#ffffff' }
+            { fontFamily: 'Arial', fontSize: 60, color: '#ffffff' }
         ).setOrigin(0.5);
 
         // Display high score
@@ -31,6 +31,17 @@ class Endscreen extends Phaser.Scene {
             `Coin Count: ${this.coinCount}`, 
             { fontFamily: 'Arial', fontSize: 20, color: '#ffffff' }
         ).setOrigin(0.5);
+
+        // restart game
+        this.add.text(
+            this.game.config.width / 2, 
+            this.game.config.height / 2 + 50, 
+            'Restart game by pressing R!', 
+            { fontFamily: 'Arial', fontSize: 60, color: '#ffffff' }
+        ).setOrigin(0.5);
+        this.input.keyboard.on('keydown-R', () => {
+            this.scene.start('loadScene'); // Restart the game by starting the NarioScene
+        });
 
     }
 }
