@@ -22,7 +22,6 @@ class Nario extends Phaser.Scene {
         this.load.audio('flagpole', 'smb_flagpole.wav');
         this.load.audio('jump', 'smb_jump-small.wav');
         this.load.audio('jump_s', 'smb_jump-super.wav');
-        this.load.audio('stage_clear', 'smb_stage_clear.wav');
         this.load.audio('stomp', 'smb_stomp.wav');
         this.load.audio('die', 'smb_mariodie.wav');
         this.load.audio('coinSound', 'Mario-coin-sound.mp3');
@@ -49,6 +48,7 @@ class Nario extends Phaser.Scene {
         });
 
         this.coinSound = this.sound.add('coinSound');
+        this.flagSound = this.sound.add('flagpole');
     
         // create objects coin and powerup (mushroom)
         this.coins = this.map.createFromObjects("Flag-n-Items", {
@@ -57,13 +57,28 @@ class Nario extends Phaser.Scene {
             frame: 57
         });
 
+        this.flag = this.map.createFromObjects("Flag-n-Items", {
+            name: "flag",
+            key: "tilemap_sheet",
+            frame: 313
+        });
+
+        this.flagPole = this.map.createFromObjects("Flag-n-Items", {
+            name: "flag",
+            key: "tilemap_sheet",
+            frame: 280
+        });
+
         // Since createFromObjects returns an array of regular Sprites, we need to convert 
         // them into Arcade Physics sprites (STATIC_BODY, so they don't move) 
         this.physics.world.enable(this.coins, Phaser.Physics.Arcade.STATIC_BODY);
+        this.physics.world.enable(this.flagPole, Phaser.Physics.Arcade.STATIC_BODY);
+        this.physics.world.enable(this.flag, Phaser.Physics.Arcade.STATIC_BODY);
     
         // Create a Phaser group out of the array this.coins
         // This will be used for collision detection below.
         this.coinGroup = this.add.group(this.coins);
+        this.flagGroup = this.add.group(this.flagPole, this.flag);
     
         // set up player avatar
         my.sprite.player = this.physics.add.sprite(0, -100, "marios", "mario_idle.png");
@@ -77,10 +92,17 @@ class Nario extends Phaser.Scene {
         this.physics.world.bounds.setTo(0, 0, this.map.widthInPixels, this.map.heightInPixels)
         this.physics.world.TILE_BIAS = 26  // increase to prevent sprite tunneling through tiles
 
-        // Handle collision detection with coins
+        // Handle collision detection with coins and flag
         this.physics.add.overlap(my.sprite.player, this.coinGroup, (obj1, obj2) => {
             this.coinSound.play();
             obj2.destroy(); // remove coin on overlap
+            this.coinCount++;
+        });
+
+        this.physics.add.overlap(my.sprite.player, this.flagGroup, (obj1, obj2) => {
+            this.game.sound.stopAll();
+            this.flagSound.play();
+            this.scene.start("endScene", { coinCount: this.coinCount }); // go to end scene
         });
     
         // set up Phaser-provided cursor key input
@@ -101,10 +123,8 @@ class Nario extends Phaser.Scene {
 
         // music and sfx
         this.theme = this.sound.add('theme');
-        this.flagpole = this.sound.add('flagpole');
         this.jump = this.sound.add('jump');
         this.jump_s = this.sound.add('jump_s');
-        this.stage_clear = this.sound.add('stage_clear');
         this.stomp = this.sound.add('stomp');
         this.die = this.sound.add('die');
         this.theme.play();

@@ -9,10 +9,14 @@ class Endscreen extends Phaser.Scene {
     }
 
     preload() {
-        this.load.audio('gameover', 'smb_gameover.wav');
+        this.load.setPath("./assets/");
+        this.load.audio('stage_clear', 'smb_stage_clear.wav');
     }
+
     create() {
         // Add end game message
+        this.stage_clear_sound = this.sound.add('stage_clear');
+        this.stage_clear_sound.play();
         this.add.text(
             this.game.config.width / 2, 
             this.game.config.height / 2 - 50, 
@@ -28,7 +32,5 @@ class Endscreen extends Phaser.Scene {
             { fontFamily: 'Arial', fontSize: 20, color: '#ffffff' }
         ).setOrigin(0.5);
 
-        this.gameover = this.sound.add('gameover');
-        this.gameover.play();
     }
 }
