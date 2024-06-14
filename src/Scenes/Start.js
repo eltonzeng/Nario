@@ -14,7 +14,7 @@ class Start extends Phaser.Scene {
         this.add.text(
             this.game.config.width / 2, 
             this.game.config.height / 2 + 300, 
-            'By: Elton Zeng', 
+            'Credits: Elton Zeng (code), The Mushroom Kingdom (sfx), The Spriters Resource (assets)', 
             { fontFamily: 'Arial', fontSize: 40, color: '#ffffff' }
         ).setOrigin(0.5);
         // Create an input event listener
