@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.10" tiledversion="1.10.2" orientation="orthogonal" renderorder="right-down" width="210" height="16" tilewidth="16" tileheight="16" infinite="0" nextlayerid="14" nextobjectid="106">
+<map version="1.10" tiledversion="1.10.2" orientation="orthogonal" renderorder="right-down" width="210" height="16" tilewidth="16" tileheight="16" infinite="0" nextlayerid="14" nextobjectid="107">
  <tileset firstgid="1" name="NES - Super Mario Bros - Tileset (1)" tilewidth="16" tileheight="16" tilecount="924" columns="33">
   <image source="../../../Downloads/NES - Super Mario Bros - Tileset (1).png" trans="0015f7" width="528" height="448"/>
   <tile id="0">
