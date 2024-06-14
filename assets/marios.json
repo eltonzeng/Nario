@@ -1,119 +1,14 @@
 {
 	"textures": [
 		{
-			"image": "mario_sheet.png",
+			"image": "marios.png",
 			"format": "RGBA8888",
 			"size": {
-				"w": 130,
-				"h": 1932
+				"w": 487,
+				"h": 512
 			},
 			"scale": 1,
 			"frames": [
-				{
-					"filename": "mario_collide.png",
-					"rotated": false,
-					"trimmed": false,
-					"sourceSize": {
-						"w": 128,
-						"h": 128
-					},
-					"spriteSourceSize": {
-						"x": 0,
-						"y": 0,
-						"w": 128,
-						"h": 128
-					},
-					"frame": {
-						"x": 1,
-						"y": 1,
-						"w": 128,
-						"h": 128
-					}
-				},
-				{
-					"filename": "mario_idle.png",
-					"rotated": false,
-					"trimmed": false,
-					"sourceSize": {
-						"w": 128,
-						"h": 128
-					},
-					"spriteSourceSize": {
-						"x": 0,
-						"y": 0,
-						"w": 128,
-						"h": 128
-					},
-					"frame": {
-						"x": 1,
-						"y": 131,
-						"w": 128,
-						"h": 128
-					}
-				},
-				{
-					"filename": "mario_jump.png",
-					"rotated": false,
-					"trimmed": false,
-					"sourceSize": {
-						"w": 128,
-						"h": 128
-					},
-					"spriteSourceSize": {
-						"x": 0,
-						"y": 0,
-						"w": 128,
-						"h": 128
-					},
-					"frame": {
-						"x": 1,
-						"y": 261,
-						"w": 128,
-						"h": 128
-					}
-				},
-				{
-					"filename": "mario_run1.png",
-					"rotated": false,
-					"trimmed": false,
-					"sourceSize": {
-						"w": 128,
-						"h": 128
-					},
-					"spriteSourceSize": {
-						"x": 0,
-						"y": 0,
-						"w": 128,
-						"h": 128
-					},
-					"frame": {
-						"x": 1,
-						"y": 391,
-						"w": 128,
-						"h": 128
-					}
-				},
-				{
-					"filename": "mario_run2.png",
-					"rotated": false,
-					"trimmed": false,
-					"sourceSize": {
-						"w": 128,
-						"h": 128
-					},
-					"spriteSourceSize": {
-						"x": 0,
-						"y": 0,
-						"w": 128,
-						"h": 128
-					},
-					"frame": {
-						"x": 1,
-						"y": 521,
-						"w": 128,
-						"h": 128
-					}
-				},
 				{
 					"filename": "b_mario_jump.png",
 					"rotated": false,
@@ -130,7 +25,7 @@
 					},
 					"frame": {
 						"x": 1,
-						"y": 651,
+						"y": 1,
 						"w": 127,
 						"h": 256
 					}
@@ -138,22 +33,22 @@
 				{
 					"filename": "b_mario_collide.png",
 					"rotated": false,
-					"trimmed": false,
+					"trimmed": true,
 					"sourceSize": {
 						"w": 127,
 						"h": 254
 					},
 					"spriteSourceSize": {
 						"x": 0,
-						"y": 0,
+						"y": 13,
 						"w": 127,
-						"h": 254
+						"h": 241
 					},
 					"frame": {
 						"x": 1,
-						"y": 909,
+						"y": 259,
 						"w": 127,
-						"h": 254
+						"h": 241
 					}
 				},
 				{
@@ -171,29 +66,8 @@
 						"h": 254
 					},
 					"frame": {
-						"x": 1,
-						"y": 1165,
-						"w": 127,
-						"h": 254
-					}
-				},
-				{
-					"filename": "b_mario_run1.png",
-					"rotated": false,
-					"trimmed": false,
-					"sourceSize": {
-						"w": 127,
-						"h": 254
-					},
-					"spriteSourceSize": {
-						"x": 0,
-						"y": 0,
-						"w": 127,
-						"h": 254
-					},
-					"frame": {
-						"x": 1,
-						"y": 1421,
+						"x": 130,
+						"y": 1,
 						"w": 127,
 						"h": 254
 					}
@@ -213,10 +87,136 @@
 						"h": 254
 					},
 					"frame": {
-						"x": 1,
-						"y": 1677,
+						"x": 130,
+						"y": 257,
 						"w": 127,
 						"h": 254
+					}
+				},
+				{
+					"filename": "b_mario_run1.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 127,
+						"h": 254
+					},
+					"spriteSourceSize": {
+						"x": 5,
+						"y": 5,
+						"w": 117,
+						"h": 249
+					},
+					"frame": {
+						"x": 259,
+						"y": 1,
+						"w": 117,
+						"h": 249
+					}
+				},
+				{
+					"filename": "mario_jump.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 128,
+						"h": 128
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 128,
+						"h": 128
+					},
+					"frame": {
+						"x": 259,
+						"y": 252,
+						"w": 128,
+						"h": 128
+					}
+				},
+				{
+					"filename": "mario_run1.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 128,
+						"h": 128
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 122,
+						"h": 128
+					},
+					"frame": {
+						"x": 259,
+						"y": 382,
+						"w": 122,
+						"h": 128
+					}
+				},
+				{
+					"filename": "mario_idle.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 128,
+						"h": 128
+					},
+					"spriteSourceSize": {
+						"x": 14,
+						"y": 0,
+						"w": 100,
+						"h": 128
+					},
+					"frame": {
+						"x": 383,
+						"y": 382,
+						"w": 100,
+						"h": 128
+					}
+				},
+				{
+					"filename": "mario_run2.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 128,
+						"h": 128
+					},
+					"spriteSourceSize": {
+						"x": 6,
+						"y": 6,
+						"w": 108,
+						"h": 122
+					},
+					"frame": {
+						"x": 378,
+						"y": 1,
+						"w": 108,
+						"h": 122
+					}
+				},
+				{
+					"filename": "mario_collide.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 128,
+						"h": 128
+					},
+					"spriteSourceSize": {
+						"x": 22,
+						"y": 0,
+						"w": 92,
+						"h": 128
+					},
+					"frame": {
+						"x": 389,
+						"y": 125,
+						"w": 92,
+						"h": 128
 					}
 				}
 			]
@@ -225,6 +225,6 @@
 	"meta": {
 		"app": "https://www.codeandweb.com/texturepacker",
 		"version": "3.0",
-		"smartupdate": "$TexturePacker:SmartUpdate:8badfcaf8f698efd0df1c2c855520b24:70b1c905e5a7b9785acee6d653def351:2e7e162cdae73308513772e3f786be6e$"
+		"smartupdate": "$TexturePacker:SmartUpdate:d42789e0b85fbdac9bb300d9ee5c4b87:1648d884b2bb5aed863d8236431aacb6:89d9464a635d840d2f48e055ade60672$"
 	}
 }

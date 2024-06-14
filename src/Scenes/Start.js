@@ -4,7 +4,7 @@ class Start extends Phaser.Scene {
     }
 
     create() {
-        // Add end game message
+        // Add start game message
         this.add.text(
             this.game.config.width / 2, 
             this.game.config.height / 2 - 150, 
@@ -14,10 +14,9 @@ class Start extends Phaser.Scene {
         this.add.text(
             this.game.config.width / 2, 
             this.game.config.height / 2 + 300, 
-            'Credits: Elton Zeng', 
+            'By: Elton Zeng', 
             { fontFamily: 'Arial', fontSize: 40, color: '#ffffff' }
         ).setOrigin(0.5);
-
         // Create an input event listener
         this.input.keyboard.on('keydown', this.startNextScene, this);
     }

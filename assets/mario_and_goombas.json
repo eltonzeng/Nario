@@ -1,0 +1,167 @@
+{
+	"textures": [
+		{
+			"image": "mario_and_goombas.png",
+			"format": "RGBA8888",
+			"size": {
+				"w": 126,
+				"h": 255
+			},
+			"scale": 1,
+			"frames": [
+				{
+					"filename": "b_mario_turn.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 64,
+						"h": 129
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 64,
+						"h": 129
+					},
+					"frame": {
+						"x": 1,
+						"y": 1,
+						"w": 64,
+						"h": 129
+					}
+				},
+				{
+					"filename": "b_mario_damage.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 64,
+						"h": 129
+					},
+					"spriteSourceSize": {
+						"x": 6,
+						"y": 7,
+						"w": 58,
+						"h": 122
+					},
+					"frame": {
+						"x": 1,
+						"y": 132,
+						"w": 58,
+						"h": 122
+					}
+				},
+				{
+					"filename": "mario_death.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 64,
+						"h": 65
+					},
+					"spriteSourceSize": {
+						"x": 3,
+						"y": 0,
+						"w": 58,
+						"h": 57
+					},
+					"frame": {
+						"x": 67,
+						"y": 1,
+						"w": 58,
+						"h": 57
+					}
+				},
+				{
+					"filename": "mario_turn.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 64,
+						"h": 65
+					},
+					"spriteSourceSize": {
+						"x": 4,
+						"y": 0,
+						"w": 54,
+						"h": 65
+					},
+					"frame": {
+						"x": 67,
+						"y": 60,
+						"w": 54,
+						"h": 65
+					}
+				},
+				{
+					"filename": "goomba1.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 48,
+						"h": 49
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 48,
+						"h": 49
+					},
+					"frame": {
+						"x": 67,
+						"y": 127,
+						"w": 48,
+						"h": 49
+					}
+				},
+				{
+					"filename": "goomba2.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 48,
+						"h": 49
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 48,
+						"h": 49
+					},
+					"frame": {
+						"x": 61,
+						"y": 178,
+						"w": 48,
+						"h": 49
+					}
+				},
+				{
+					"filename": "goomba_death.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 48,
+						"h": 49
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 25,
+						"w": 47,
+						"h": 24
+					},
+					"frame": {
+						"x": 61,
+						"y": 229,
+						"w": 47,
+						"h": 24
+					}
+				}
+			]
+		}
+	],
+	"meta": {
+		"app": "https://www.codeandweb.com/texturepacker",
+		"version": "3.0",
+		"smartupdate": "$TexturePacker:SmartUpdate:d98f9757e9966258a3c9adb7e534cc8c:3eece239f3e80956bcbae3e217b61602:66415c170cf23519593be56438d73b07$"
+	}
+}

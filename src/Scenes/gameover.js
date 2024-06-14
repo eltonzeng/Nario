@@ -1,6 +1,6 @@
-class Endscreen extends Phaser.Scene {
+class Gameover extends Phaser.Scene {
     constructor() {
-        super("endScene");
+        super("gameover_scene");
 
     }
 

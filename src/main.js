@@ -22,7 +22,7 @@ let config = {
     },
     width: 1920,
     height: 1080,
-    scene: [Start, Load, Endscreen, Nario]
+    scene: [Start, Load, Endscreen, Nario, Gameover]
 }
 
 var cursors;
